@@ -1,29 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Notes</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-zinc-900 text-white min-h-screen p-8 font-sans">
     <div class="max-w-6xl mx-auto space-y-10">
         <form action="/create" method="post" class="flex flex-col space-y-4">
-            <input type="text" placeholder="Title goes here.." name="title" class="w-full bg-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
-            <textarea rows="3" placeholder="Write your task details here..." name="details" class="w-full bg-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none"></textarea>
+            <input type="text" placeholder="Title goes here.." name="title"
+                class="w-full bg-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+            <textarea rows="3" placeholder="Write your task details here..." name="details"
+                class="w-full bg-zinc-800 text-white placeholder-zinc-500 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none"></textarea>
             <div>
-                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-md font-medium transition-colors">Create Task</button>
+                <button type="submit"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-md font-medium transition-colors">Create
+                    Task</button>
             </div>
         </form>
+        <div class="flex flex-wrap gap-4 mt-10">
 
-        <!-- ---------Task Cards Section -- -->
+            <!-- 1. Check if the files array is empty -->
+            <% if (files.length===0) { %>
+
+                <!-- Show this if there are no tasks -->
+                <h3 class="text-zinc-500 text-lg">No Tasks Yet</h3>
+
+                <% } else { %>
+
+                    <!-- 2. If it's not empty, loop through the files -->
+                    <% files.forEach(function(taskName) { %>
+
+                        <!-- This is the card design that will be duplicated for each task -->
+                        <div class="bg-zinc-800 rounded-md p-5 w-72 flex flex-col justify-between">
+                            <h3 class="text-2xl font-normal tracking-tight text-zinc-100 mb-8">
+                                <!-- 3. Print the name of the task here -->
+                                <%= taskName %>
+                            </h3>
+                            <a href="#" class="text-blue-500 hover:text-blue-400 text-sm">
+                                Read More.
+                            </a>
+                        </div>
+
+                        <% }) %>
+
+                            <% } %>
+
+        </div>
         <div class="flex flex-wrap gap-4">
             <!-- Card 1 -->
             <div class="bg-zinc-800 rounded-md p-5 w-72 flex flex-col justify-between hidden">
                 <h3 class="text-2xl font-normal tracking-tight text-zinc-100 mb-8">
                     Some task goes here.
                 </h3>
-                <a href="#" class="text-blue-500 hover:text-blue-400 text-sm">
+                <a href="/files/<%=val%>" class="text-blue-500 hover:text-blue-400 text-sm">
                     Read More.
                 </a>
             </div>
@@ -33,7 +66,7 @@
                 <h3 class="text-2xl font-normal tracking-tight text-zinc-100 mb-8">
                     Some task goes here.
                 </h3>
-                <a href="#" class="text-blue-500 hover:text-blue-400 text-sm">
+                <a href="/files/<%=val%>" class="text-blue-500 hover:text-blue-400 text-sm">
                     Read More.
                 </a>
             </div>
@@ -43,7 +76,7 @@
                 <h3 class="text-2xl font-normal tracking-tight text-zinc-100 mb-8">
                     Some task goes here.
                 </h3>
-                <a href="#" class="text-blue-500 hover:text-blue-400 text-sm">
+                <a href="/files/<%=val%>" class="text-blue-500 hover:text-blue-400 text-sm">
                     Read More.
                 </a>
             </div>
@@ -55,4 +88,5 @@
     </div>
 
 </body>
+
 </html>
