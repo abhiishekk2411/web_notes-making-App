@@ -1,0 +1,16 @@
+{
+  "name": "web_notes_making",
+  "version": "1.0.0",
+  "description": "a basic project to practice backend",
+  "license": "ISC",
+  "author": "Abhishek",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  }
+}
