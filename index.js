@@ -33,4 +33,11 @@ app.post('/create', function (req, res) {
     );
 });
 
+app.post('/delete/:filename',function(req,res){
+    fs.unlink(`./files/${req.params.filename}`,function(err){
+        if(err) return res.status(500).send("Error Deleting file");
+        res.redirect('/');
+    })
+})
+
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));
