@@ -1,0 +1,24 @@
+# Dependency directories
+node_modules/
+
+# Environment variables & secrets (Crucial)
+.env
+.env.local
+.env.development
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional: coverage directory used by testing tools
+coverage/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
